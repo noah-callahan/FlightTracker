@@ -1,7 +1,45 @@
 
 
-<%= @opensky['states'].select{|icao,callsign,origin_country,time_position,last_contact,longitude,latitude,geo_altitude,on_ground,velocity,heading,vertical_rate,sensors,baro_altitude,squawk,spi,position_source| callsign[0..2] == "UAL"} %>
-
-
 <%# @opensky['states'].select{|a,b| a == "8076c4"} %>
 
+
+<%hash_me(@response)%>
+
+
+<%@responsehash.each do |f|%>
+    <%=f['callsign']%>
+<%end%>
+
+<% if false %>
+    <%@response.each do |f|%>
+        <%@reponsehash = [Hash[(FLIGHT_INDEX).zip f]]%>
+        <%=@reponsehash%>
+        <%xm = Builder::XmlMarkup.new(:ident => 17)%>   
+        <br />
+    <%end%>
+
+    <table>
+    <tr>
+      <th class="row-style">ICAO</th>
+      <th class="row-style">CALLSIGN</th>
+      <th class="row-style">Origin Country</th>
+      <th class="row-style">TIME POISITION</th>
+      <th class="row-style">LAST CONTACT</th>
+      <th class="row-style">LONGITUDE</th>
+      <th class="row-style">LATITUDE</th>
+      <th class="row-style">GEO ALTITUDE</th>
+      <th class="row-style">ON GROUND</th>
+      <th class="row-style">VELOCITY</th>
+      <th class="row-style">HEADING</th>
+      <th class="row-style">VERTICAL RATE</th>
+      <th class="row-style">SENSORS</th>
+      <th class="row-style">BARO ALTITUDE</th>
+      <th class="row-style">SQUAWK CODE</th>
+      <th class="row-style">SPI</th>
+      <th class="row-style">POSITION SOURCE</th>
+    </tr>
+
+
+</table>
+
+<% end %>
